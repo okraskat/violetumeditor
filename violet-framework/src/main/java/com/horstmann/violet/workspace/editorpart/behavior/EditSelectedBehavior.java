@@ -82,6 +82,8 @@ public class EditSelectedBehavior extends AbstractEditorPartBehavior
     public void editSelected()
     {
         final Object edited = selectionHandler.isNodeSelectedAtLeast() ? selectionHandler.getLastSelectedNode() : selectionHandler.getLastSelectedEdge();
+        final INode clonnedState = getClonnedState(edited);
+
         if (edited == null)
         {
             return;
@@ -117,6 +119,7 @@ public class EditSelectedBehavior extends AbstractEditorPartBehavior
         });
 
         JOptionPane optionPane = new JOptionPane();
+        optionPane.setOptions(new Object[]{"OK", cancelButtonLabel});
         optionPane.setOpaque(true);
         optionPane.addPropertyChangeListener(new PropertyChangeListener()
         {
@@ -126,6 +129,9 @@ public class EditSelectedBehavior extends AbstractEditorPartBehavior
                 {
                     if (sheet.isEditable())
                     {
+                        if (cancelButtonLabel.equals(event.getNewValue()) && edited instanceof INode) {
+                            ((INode) edited).setNodeState(clonnedState);
+                        }
                         // This manages optionPane submits through a property
                         // listener because, as dialog display could be
                         // delegated
@@ -168,8 +174,14 @@ public class EditSelectedBehavior extends AbstractEditorPartBehavior
         }
         this.dialogFactory.showDialog(optionPane, tooltip+": "+this.dialogTitle, true);
     }
-    
-  
+
+    private INode getClonnedState(Object edited) {
+        if (edited instanceof INode) {
+            return ((INode) edited).clone();
+        }
+        return null;
+    }
+
 
     private IEditorPartSelectionHandler selectionHandler;
     private IEditorPart editorPart;
@@ -181,6 +193,9 @@ public class EditSelectedBehavior extends AbstractEditorPartBehavior
 
     @ResourceBundleBean(key = "edit.properties.title")
     private String dialogTitle;
+
+    @ResourceBundleBean(key = "edit.properties.cancel")
+    private String cancelButtonLabel;
 
     @ResourceBundleBean(key = "edit.properties.empty_bean_message")
     private String uneditableBeanMessage;

@@ -204,4 +204,6 @@ public interface INode extends Serializable, Cloneable, IIdentifiable, Connected
      * @return a deep copy of this object
      */
     INode clone();
+
+    void setNodeState(INode nodeState);
 }

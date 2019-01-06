@@ -131,6 +131,15 @@ public class ClassNode extends AbstractNode
         return ClassDiagramConstant.CLASS_DIAGRAM_RESOURCE.getString("tooltip.class_node");
     }
 
+    @Override
+    public void setNodeState(INode nodeState) {
+        ClassNode node = (ClassNode) nodeState;
+        name = node.name.clone();
+        attributes = node.attributes.clone();
+        methods = node.methods.clone();
+        createContentStructure();
+    }
+
     /**
      * Sets the name property value.
      * 

@@ -40,6 +40,7 @@ import com.horstmann.violet.framework.injection.resources.ResourceBundleInjector
 import com.horstmann.violet.framework.injection.resources.annotation.ResourceBundleBean;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.property.text.MultiLineText;
 
 /**
@@ -258,6 +259,12 @@ public class ImageNode extends AbstractNode
     public String getToolTip()
     {
         return "";
+    }
+
+    @Override
+    public void setNodeState(INode nodeState) {
+        text = ((ImageNode) nodeState).getText();
+        this.imageIcon = ((ImageNode) nodeState).getImageIcon();
     }
 
     private static final String PIXEL_SEPARATOR = ":";

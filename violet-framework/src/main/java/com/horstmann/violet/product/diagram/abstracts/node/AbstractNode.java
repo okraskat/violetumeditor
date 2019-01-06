@@ -124,6 +124,11 @@ public abstract class AbstractNode implements INode, IColorableNode
     }
 
     @Override
+    public void setNodeState(INode state)
+    {
+    }
+
+    @Override
     public String getToolTip()
     {
         return "";

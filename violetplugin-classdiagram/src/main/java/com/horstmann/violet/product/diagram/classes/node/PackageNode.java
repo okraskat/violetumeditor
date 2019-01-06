@@ -45,6 +45,14 @@ public class PackageNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode nodeState) {
+        PackageNode node = (PackageNode) nodeState;
+        name = node.name.clone();
+        context = node.context.clone();
+        createContentStructure();
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();
