@@ -48,7 +48,6 @@ public class EnumNode extends AbstractNode
         EnumNode node = (EnumNode) nodeState;
         name = node.name.clone();
         attributes = node.attributes.clone();
-        createContentStructure();
     }
 
     @Override

@@ -137,7 +137,6 @@ public class ClassNode extends AbstractNode
         name = node.name.clone();
         attributes = node.attributes.clone();
         methods = node.methods.clone();
-        createContentStructure();
     }
 
     /**

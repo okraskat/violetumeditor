@@ -53,7 +53,6 @@ public class InterfaceNode extends AbstractNode
         InterfaceNode node = (InterfaceNode) nodeState;
         name = node.name.clone();
         methods = node.methods.clone();
-        createContentStructure();
     }
 
     @Override
