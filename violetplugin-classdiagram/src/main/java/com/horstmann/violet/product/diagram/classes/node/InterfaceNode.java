@@ -180,8 +180,12 @@ public class InterfaceNode extends AbstractNode
     private static LineText.Converter nameConverter = new LineText.Converter()
     {
         @Override
-        public OneLineText toLineString(String text)
+        public OneLineText toLineString(String rawText)
         {
+            String text = rawText;
+            if (rawText != null && rawText.length() > 0) {
+                text = Character.toUpperCase(rawText.charAt(0)) + rawText.substring(1);
+            }
             return new PrefixDecorator( new LargeSizeDecorator(new OneLineText(text)), "<center>&laquo;interface&raquo;</center>");
         }
     };

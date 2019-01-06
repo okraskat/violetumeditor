@@ -225,8 +225,12 @@ public class ClassNode extends AbstractNode
     private static final LineText.Converter NAME_CONVERTER = new LineText.Converter()
     {
         @Override
-        public OneLineText toLineString(String text)
+        public OneLineText toLineString(String rawText)
         {
+            String text = rawText;
+            if (rawText != null && rawText.length() > 0) {
+                text = Character.toUpperCase(rawText.charAt(0)) + rawText.substring(1);
+            }
             OneLineText controlText = new OneLineText(text);
             OneLineText lineString = new LargeSizeDecorator(controlText);
 
