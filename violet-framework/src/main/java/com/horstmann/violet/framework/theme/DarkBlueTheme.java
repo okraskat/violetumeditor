@@ -121,7 +121,7 @@ public class DarkBlueTheme extends AbstractTheme
 
     public Color getRolloverButtonRolloverBorderColor()
     {
-        return getMenubarForegroundColor();
+        return Color.BLACK;
     }
 
     public Color getRolloverButtonRolloverColor()
