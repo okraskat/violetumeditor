@@ -51,8 +51,8 @@ public class InterfaceNode extends AbstractNode
     @Override
     public void setNodeState(INode nodeState) {
         InterfaceNode node = (InterfaceNode) nodeState;
-        name = node.name.clone();
-        methods = node.methods.clone();
+        name.setText(node.name);
+        methods.setText(node.methods);
     }
 
     @Override

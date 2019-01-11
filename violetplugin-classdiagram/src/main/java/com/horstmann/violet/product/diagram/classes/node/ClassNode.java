@@ -134,9 +134,9 @@ public class ClassNode extends AbstractNode
     @Override
     public void setNodeState(INode nodeState) {
         ClassNode node = (ClassNode) nodeState;
-        name = node.name.clone();
-        attributes = node.attributes.clone();
-        methods = node.methods.clone();
+        name.setText(node.name);
+        attributes.setText(node.attributes);
+        methods.setText(node.methods);
     }
 
     /**

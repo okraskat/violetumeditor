@@ -38,9 +38,8 @@ public class EnumNode extends AbstractNode
     protected EnumNode(EnumNode node) throws CloneNotSupportedException
     {
         super(node);
-        name = node.name.clone();
-        attributes = node.attributes.clone();
-        createContentStructure();
+        name.setText(node.name);
+        attributes.setText(node.attributes);
     }
 
     @Override
