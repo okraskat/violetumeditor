@@ -31,6 +31,7 @@ import java.util.ResourceBundle;
 
 import com.horstmann.violet.framework.injection.resources.ResourceBundleConstant;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.common.DiagramLink;
 import com.horstmann.violet.product.diagram.property.text.MultiLineText;
 
@@ -54,7 +55,12 @@ public class DiagramLinkNode extends AbstractNode
 //        return ResourceBundleConstant.NODE_AND_EDGE_RESOURCE.getString("note_node.tooltip");
         return "DiagramLinkNode";
     }
-    
+
+    @Override
+    public void setNodeState(INode state) {
+        label.setText(((DiagramLinkNode) state).getLabel());
+    }
+
     @Override
     public Rectangle2D getBounds()
     {

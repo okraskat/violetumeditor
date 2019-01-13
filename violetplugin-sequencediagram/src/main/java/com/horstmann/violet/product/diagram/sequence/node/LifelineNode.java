@@ -85,6 +85,13 @@ public class LifelineNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        LifelineNode that = (LifelineNode) state;
+        name.setText(that.name);
+        type.setText(that.type);
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

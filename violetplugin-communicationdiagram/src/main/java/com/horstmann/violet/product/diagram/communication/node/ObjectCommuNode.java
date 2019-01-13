@@ -38,6 +38,11 @@ public class ObjectCommuNode extends AbstractNode
 	}
 
 	@Override
+	public void setNodeState(INode state) {
+		name.setText(((ObjectCommuNode) state).name);
+	}
+
+	@Override
 	protected void beforeReconstruction()
 	{
 		super.beforeReconstruction();

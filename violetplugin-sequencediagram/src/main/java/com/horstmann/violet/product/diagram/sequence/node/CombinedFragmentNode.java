@@ -51,6 +51,15 @@ public class CombinedFragmentNode extends AbstractNode // implements IResizableN
     }
 
     @Override
+    public void setNodeState(INode state) {
+        CombinedFragmentNode node = (CombinedFragmentNode) state;
+        operator = node.operator;
+        selectedType = operator.getSelectedPos();
+        operatorText.setText(node.operatorText);
+        frameContent.setText(node.frameContent);
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

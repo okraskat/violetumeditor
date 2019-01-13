@@ -61,6 +61,11 @@ public class DecisionNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        condition.setText(((DecisionNode) state).getCondition());
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

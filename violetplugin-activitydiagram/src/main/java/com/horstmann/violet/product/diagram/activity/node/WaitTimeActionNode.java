@@ -14,6 +14,7 @@ import com.horstmann.violet.framework.graphics.shape.ContentInsideCustomShape;
 import com.horstmann.violet.product.diagram.abstracts.Direction;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.activity.ActivityDiagramConstant;
 import com.horstmann.violet.product.diagram.property.text.LineText;
 import com.horstmann.violet.product.diagram.property.text.SingleLineText;
@@ -39,6 +40,11 @@ public class WaitTimeActionNode extends AbstractNode
         super(node);
         name = node.name.clone();
         createContentStructure();
+    }
+
+    @Override
+    public void setNodeState(INode state) {
+        name.setText(((WaitTimeActionNode) state).name);
     }
 
     @Override

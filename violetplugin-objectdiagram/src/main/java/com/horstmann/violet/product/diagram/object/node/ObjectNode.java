@@ -69,6 +69,13 @@ public class ObjectNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        ObjectNode that = (ObjectNode) state;
+        name.setText(that.name);
+        type.setText(that.type);
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

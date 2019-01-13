@@ -66,6 +66,11 @@ public class ExternalSystemExitPointNode extends AbstractNode
 	}
 
 	@Override
+	public void setNodeState(INode state) {
+		name.setText(((ExternalSystemExitPointNode) state).name);
+	}
+
+	@Override
 	protected void beforeReconstruction()
 	{
 		super.beforeReconstruction();

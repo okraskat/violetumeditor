@@ -83,6 +83,14 @@ public class BallAndSocketNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        BallAndSocketNode that = (BallAndSocketNode) state;
+        name.setText(that.name);
+        selectedType = that.getType().getSelectedPos();
+        selectedOrientation = that.getType().getSelectedPos();
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

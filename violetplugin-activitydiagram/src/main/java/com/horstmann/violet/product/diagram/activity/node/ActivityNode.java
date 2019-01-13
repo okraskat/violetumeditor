@@ -32,6 +32,7 @@ import com.horstmann.violet.framework.graphics.content.RelativeLayout;
 import com.horstmann.violet.framework.graphics.content.TextContent;
 import com.horstmann.violet.framework.graphics.shape.ContentInsideRoundRectangle;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.abstracts.node.IResizableNode;
 import com.horstmann.violet.product.diagram.activity.ActivityDiagramConstant;
 import com.horstmann.violet.product.diagram.property.text.MultiLineText;
@@ -50,6 +51,11 @@ public class ActivityNode extends AbstractNode // implements IResizableNode
         super(node);
         name = node.name.clone();
         createContentStructure();
+    }
+
+    @Override
+    public void setNodeState(INode state) {
+        name.setText(((ActivityNode) state).name);
     }
 
     @Override

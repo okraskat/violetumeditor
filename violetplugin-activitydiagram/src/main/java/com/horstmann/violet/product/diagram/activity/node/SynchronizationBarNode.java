@@ -32,6 +32,7 @@ import com.horstmann.violet.framework.graphics.shape.ContentInsideRoundRectangle
 import com.horstmann.violet.product.diagram.abstracts.Direction;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.activity.ActivityDiagramConstant;
 import com.horstmann.violet.product.diagram.property.choiceList.ChoiceList;
 import com.horstmann.violet.product.diagram.property.choiceList.TextChoiceList;
@@ -59,6 +60,11 @@ public class SynchronizationBarNode extends AbstractNode
         orientation = node.orientation.clone();
         selectedStretch = orientation.getSelectedPos();
         createContentStructure();
+    }
+
+    @Override
+    public void setNodeState(INode state) {
+        selectedStretch = orientation.getSelectedPos();
     }
 
     @Override

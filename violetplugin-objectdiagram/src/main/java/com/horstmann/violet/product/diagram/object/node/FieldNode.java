@@ -74,6 +74,13 @@ public class FieldNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        FieldNode that = (FieldNode) state;
+        name.setText(that.name);
+        value.setText(that.value);
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

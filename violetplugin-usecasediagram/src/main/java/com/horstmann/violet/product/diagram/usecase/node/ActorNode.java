@@ -107,6 +107,11 @@ public class ActorNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        name.setText(((ActorNode) state).getName());
+    }
+
+    @Override
     protected void beforeReconstruction()
     {
         super.beforeReconstruction();

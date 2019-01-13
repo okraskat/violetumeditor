@@ -29,6 +29,7 @@ import com.horstmann.violet.framework.graphics.content.ContentInsideShape;
 import com.horstmann.violet.framework.graphics.content.TextContent;
 import com.horstmann.violet.framework.graphics.shape.ContentInsideEllipse;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.activity.ActivityDiagramConstant;
 import com.horstmann.violet.product.diagram.property.text.LineText;
 import com.horstmann.violet.product.diagram.property.text.SingleLineText;
@@ -53,6 +54,11 @@ public class PageLinkNode extends AbstractNode
         super(node);
         name = node.name.clone();
         createContentStructure();
+    }
+
+    @Override
+    public void setNodeState(INode state) {
+        name.setText(((PageLinkNode) state).name);
     }
 
     @Override

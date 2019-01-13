@@ -82,6 +82,11 @@ public class NoteNode extends AbstractNode
     }
 
     @Override
+    public void setNodeState(INode state) {
+        text.setText(((NoteNode) state).getText());
+    }
+
+    @Override
     protected void createContentStructure()
     {
         TextContent textContent = new TextContent(text);

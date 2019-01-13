@@ -32,6 +32,7 @@ import com.horstmann.violet.framework.graphics.shape.ContentInsideDiamond;
 import com.horstmann.violet.product.diagram.abstracts.Direction;
 import com.horstmann.violet.product.diagram.abstracts.edge.IEdge;
 import com.horstmann.violet.product.diagram.abstracts.node.AbstractNode;
+import com.horstmann.violet.product.diagram.abstracts.node.INode;
 import com.horstmann.violet.product.diagram.activity.ActivityDiagramConstant;
 import com.horstmann.violet.product.diagram.property.text.MultiLineText;
 
@@ -57,7 +58,12 @@ public class DecisionNode extends AbstractNode
         createContentStructure();
     }
 
-    
+    @Override
+    public void setNodeState(INode state) {
+        condition.setText(((DecisionNode) state).getCondition());
+    }
+
+
     @Override
     protected void beforeReconstruction()
     {
